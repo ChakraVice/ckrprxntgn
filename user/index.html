@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chakra | Login</title>
+  <link rel="icon" href="../texture/logo/favicon.ico">
+  <link rel="apple-touch-icon" href="../texture/logo/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    form {
+      max-width: 400px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      display: flex;
+      align-items: center;
+    }
+    input[type="radio"] {
+      transform: scale(1.8);
+      margin-right: 10px;
+      border: 2px solid #4CAF50;
+      border-radius: 50%;
+      outline: none;
+      cursor: pointer;
+    }
+    input[type="radio"]:checked {
+      border-color: #4CAF50;
+      background-color: #4CAF50;
+    }
+    input[type="radio"]::before {
+      content: '';
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      transition: background-color 0.3s ease;
+    }
+    button[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 10px 0;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+    #enterButton {
+      background-color: #007bff;
+    }
+    #exitButton {
+      background-color: #b9404c;
+    }
+    #hidden_iframe {
+      display: none;
+    }
+    #id {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSfKWN1TeBKfzt4kjSVOnpWOF7zH1vlHz-y8aDcxlX5FzSnd0Q/formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true;">
+      <input type="text" id="id" name="entry.598441198" required readonly>
+      <br><br>
+      <label for="enter">
+        <input type="radio" id="enter" name="entry.1299393793" value="入室" required onclick="toggleButton(this)" checked>
+        入室
+      </label>
+      <label for="exit">
+        <input type="radio" id="exit" name="entry.1299393793" value="退室" required onclick="toggleButton(this); clearLocalStorage();">
+        退室
+      </label>
+      <br>
+      <p>注意: 入室を連続で行わないでください！！！</p>
+      <button type="submit" id="submitButton" style="background-color: #007bff;">　入室する！　</button>
+      <script type="text/javascript">
+        var submitted = false;
+      
+        function toggleButton(radio) {
+          if (radio.value === "入室") {
+            document.getElementById("submitButton").textContent = "　入室する！　";
+            document.getElementById("submitButton").style.backgroundColor = "#007bff";
+          } else if (radio.value === "退室") {
+            document.getElementById("submitButton").textContent = "　退室する！　";
+            document.getElementById("submitButton").style.backgroundColor = "#dc3545";
+          }
+        }
+      
+        function clearLocalStorage() {
+          localStorage.removeItem("id");
+        }
+      
+        window.onload = function() {
+          var idValue = localStorage.getItem("id");
+          if (idValue) {
+            document.getElementById("id").value = idValue;
+          } else {
+            window.location.href = 'nologin.html';
+          }
+        };
+      </script>
+      <iframe name="hidden_iframe" id="hidden_iframe" onload="if(submitted) {window.location='sent.html';}"></iframe>
+
+      <script>
+        document.addEventListener('contextmenu', function(event) {
+        event.preventDefault();
+        alert('　\n\n\n\n\n\n\n');
+        });
+
+        document.addEventListener('keydown', function(event) {
+        if ((event.ctrlKey || event.metaKey) && (event.keyCode === 85 || event.keyCode === 73)) {
+        event.preventDefault();
+        alert('　\n\n\n\n\n\n\n');
+        }
+        });
+      </script>
+
+      <script>
+      document.getElementById("submitButton").addEventListener("click", function() {
+      this.style.display = "none";
+      });
+  
+      </script>
+    </form>
+  </div>
+</body>
+</html>

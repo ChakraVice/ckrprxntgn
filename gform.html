@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>お問い合わせフォーム</title>
+    <style>
+      body {
+        font-family: 'Noto Sans JP', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      
+      form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 500px;
+        text-align: center;
+      }
+      
+      input[type="text"],
+      textarea {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+      
+      textarea {
+        height: 100px;
+      }
+      
+      input[type="radio"] {
+        margin-right: 5px;
+        transform: scale(1.5);
+      }
+      
+      button[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+      }
+      
+      button[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+
+      #name1 {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+      <form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSfVgy8jaOSxuPPbHa1R_NWLp1i6AuxbzJsOOA5C_FbkQ0db7w/formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true;">
+      
+      <h2>お問い合わせフォーム</h2>
+      <input type="text" id="name1" name="entry.2135619799" required><br>
+      <br>
+      <label for="name">お名前を教えてください</label><br>
+      <input type="text" id="name2" name="entry.1986141753" required><br>
+      <br>
+      <label for="message">お問い合わせ内容を入力してください</label><br>
+      <textarea id="message" name="entry.617430314" rows="3" cols="50" required></textarea>
+      <br><br><br>
+      <button type="submit" id="submitButton">送信</button>
+    </form>
+
+    <script>
+        let submitted = false;
+    
+        const page_transition = function () {
+            if(submitted){
+                window.location = 'thanks.html';
+            }
+        }
+    </script>    
+    <iframe name="hidden_iframe" style="display:none;" onload="page_transition()"></iframe>
+
+    <script>
+      var name1Input = document.getElementById('name1');
+      var storedId = localStorage.getItem('id');
+      if (storedId) {
+        name1Input.value = storedId;
+      }
+
+      document.getElementById('contactForm').addEventListener('submit', function(event) {
+        var isValid = true;
+        var inputs = this.querySelectorAll('input, textarea');
+        for (var i = 0; i < inputs.length; i++) {
+          if (!inputs[i].checkValidity()) {
+            isValid = false;
+            break;
+          }
+        }
+        if (!isValid) {
+          event.preventDefault();
+          alert('全ての項目を入力してください。');
+        } else {
+          document.getElementById('submitButton').disabled = true;
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  nav {
+    background-color: #006aa2;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+  }
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 10px;
+    transition: background-color 0.3s ease;
+  }
+  nav ul li a:hover {
+    background-color: #cf5454;
+  }
+  #contentFrame {
+    width: 100%;
+    height: calc(100vh - 50px);
+    border: none;
+  }
+  @keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+  }
+  #loadingOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    animation: fadeInOut 2s infinite;
+  }
+  #loadingText {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: #fff;
+    z-index: 1000;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="gform.html" target="contentFrame">お問い合わせフォーム</a></li>
+    <li><a href="answer.html" target="contentFrame">回答ページ</a></li>
+  </ul>
+</nav>
+
+<main>
+  <iframe id="contentFrame" name="contentFrame" src="gform.html" frameborder="0"></iframe>
+</main>
+
+</body>
+</html>

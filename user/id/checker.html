@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage Values</title>
+</head>
+<body>
+    <h1>Local Storage Values</h1>
+    <ul id="localStorageValues"></ul>
+
+    <button id="clearLocalStorage">Clear Local Storage</button>
+
+    <script>
+        // ローカルストレージからすべてのキーを取得し、それぞれの値を表示する
+        function displayLocalStorageValues() {
+            // ローカルストレージからすべてのキーを取得
+            var keys = Object.keys(localStorage);
+            var localStorageValuesList = document.getElementById('localStorageValues');
+
+            // リストをクリア
+            localStorageValuesList.innerHTML = '';
+
+            // 各キーに対して値を表示
+            keys.forEach(function(key) {
+                var value = localStorage.getItem(key);
+                var listItem = document.createElement('li');
+                listItem.textContent = key + ': ' + value;
+                localStorageValuesList.appendChild(listItem);
+            });
+        }
+
+        // ローカルストレージの値をすべて削除する関数
+        function clearLocalStorage() {
+            localStorage.clear(); // すべてのローカルストレージの値を削除
+            displayLocalStorageValues(); // 更新されたローカルストレージの値を表示
+        }
+
+        // ページ読み込み時に実行
+        window.onload = function() {
+            displayLocalStorageValues();
+
+            // Clear Local Storage ボタンがクリックされたときにローカルストレージをクリア
+            document.getElementById('clearLocalStorage').addEventListener('click', clearLocalStorage);
+        };
+    </script>
+</body>
+</html>

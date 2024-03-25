@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chakra | NoLogin</title>
+<link rel="icon" href="../texture/logo/favicon.ico">
+<link rel="apple-touch-icon" href="../texture/logo/logo.png">
+<style>
+    body {
+        font-family: 'Noto Sans JP', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .login-section {
+        text-align: center;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-section h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .login-button {
+        background-color: #273f95;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+    }
+
+    .login-button:hover {
+        background-color: #3253e4;
+    }
+</style>
+</head>
+<body>
+
+<div class="login-section">
+    <h1>ログインしていません</h1><br>
+    <a href="type.html" class="login-button">IDを入力してログイン</a><span> </span>
+    <h1></h1>
+    
+    <script>
+        let userAgent = navigator.userAgent;
+        
+        let mobileRegex = /android|iphone|kindle|ipad/i;
+        
+        let isMobileDevice = mobileRegex.test(userAgent);
+        
+        if (isMobileDevice) {
+            alert("PC以外からのアクセスを検知しました。\nChakraはPC以外での端末の動作をサポートしていません。\nそれでもよろしい場合はOKを押して進んでください。");
+        }
+    </script>
+</div>
+</body>
+</html>

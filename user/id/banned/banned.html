@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>アカウントを停止しました</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .ban-message {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    text-align: center;
+  }
+
+  h1 {
+    color: #dc3545;
+  }
+
+  p {
+    color: #6c757d;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+
+  .note {
+    font-size: 14px;
+    color: #6c757d;
+    margin-top: 20px;
+  }
+
+  .exclamation-icon {
+    font-size: 48px;
+    color: #dc3545;
+    margin-bottom: 20px;
+  }
+
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="ban-message">
+  <div class="exclamation-icon"><i class="fa fa-exclamation-circle"></i></div>
+  <h1>アカウントを停止しました</h1>
+  <p>あなたは利用規約に違反したため一時的に利用を停止しています。</p>
+  <p>詳細については、<a href="help.html">こちら</a> を参照してください。</p>
+  <p class="note">あなたは<span id="violations"></span>回目の違反です。停止は停止日から<span id="suspensionDays"></span>日で解除されます。</p>
+</div>
+
+<script>
+  var url = window.location.href;
+  var params = url.split('=')[1];
+  var M = parseInt(params[0]);
+  var N = parseInt(params[1]);
+
+  document.getElementById('violations').innerText = M;
+  document.getElementById('suspensionDays').innerText = N;
+
+  // ?=MN //
+</script>
+
+</body>
+</html>
