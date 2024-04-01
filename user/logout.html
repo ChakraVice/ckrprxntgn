@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chakra | Login</title>
+  <title>Chakra | Logout</title>
   <link rel="icon" href="../texture/logo/favicon.ico">
   <link rel="apple-touch-icon" href="../texture/logo/logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
@@ -87,16 +87,15 @@
       <input type="text" id="id" name="entry.598441198" required readonly>
       <br><br>
       <label for="enter">
-        <input type="radio" id="enter" name="entry.1299393793" value="入室" required onclick="toggleButton(this)" checked>
-        入室
+        <input type="radio" id="enter" name="entry.1299393793" value="入室" required disabled>
+        入室        
       </label>
       <label for="exit">
-        <input type="radio" id="exit" name="entry.1299393793" value="退室" required disabled onclick="toggleButton(this); clearLocalStorage();">
+        <input type="radio" id="exit" name="entry.1299393793" value="退室" required onclick="toggleButton(this); clearLocalStorage();" checked>
         退室
       </label>
       <br>
-      <button type="submit" id="submitButton" style="background-color: #007bff;">　入室する！　</button>
-      <div id="displayText" style="display: none;">処理しています...</div>
+      <button type="submit" id="submitButton" style="background-color: #b9404c;" onclick="clearLocalStorage()">　退室する！　</button>
       <script type="text/javascript">
         var submitted = false;
       
@@ -139,13 +138,12 @@
         });
       </script>
 
-<script>
-  document.getElementById("submitButton").addEventListener("click", function() {
+      <script>
+      document.getElementById("submitButton").addEventListener("click", function() {
       this.style.display = "none";
-      document.getElementById("displayText").style.display = "block";
-  });
-</script>
-      
+      });
+  
+      </script>
     </form>
   </div>
 </body>

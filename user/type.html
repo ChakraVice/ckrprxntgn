@@ -7,6 +7,7 @@
     <link rel="icon" href="../texture/logo/favicon.ico">
     <link rel="apple-touch-icon" href="../texture/logo/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
             font-family: 'Noto Sans JP', sans-serif;
@@ -44,6 +45,68 @@
         input[type="submit"]:hover {
             background-color: #235c99;
         }
+        .toast-notification {
+            position: fixed;
+            bottom: 20px;
+            right: -400px;
+            background-color: #333;
+            color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            animation: slideIn 0.5s forwards;
+        }
+        .toast-notification .icon {
+            margin-right: 20px;
+            font-size: 30px;
+        }
+        .toast-notification .message {
+            flex: 1;
+            font-size: 18px;
+        }
+        .toast-notification .bar {
+            height: 5px;
+            width: 100%;
+            background-color: #333;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        .toast-notification .progress {
+            height: 80%;
+            background-color: #dedede;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            animation: progressAnimation 8s linear forwards;
+        }
+        @keyframes slideIn {
+            from {
+                right: -800px;
+            }
+            to {
+                right: 20px;
+            }
+        }
+        @keyframes slideOut {
+            from {
+                right: 20px;
+            }
+            to {
+                right: -800px;
+            }
+        }
+        @keyframes progressAnimation {
+            0% {
+                width: 100%;
+            }
+            100% {
+                width: 0%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -54,6 +117,15 @@
         </form>
     </div>
 
+    <div class="toast-notification" id="toast">
+        <div class="icon"><i class="fa fa-info-circle"></i></div>
+        <div class="message">IDの共有は禁止されています<br>他人のIDを使用しないでください</div>
+        <div class="bar">
+            <div class="progress"></div>
+        </div>
+        
+    </div>
+
     <script>
         document.getElementById("login-form").addEventListener("submit", function(event) {
             event.preventDefault();
@@ -62,6 +134,27 @@
                 window.location.href = "id/" + encodeURIComponent(loginPassword);
             }
         });
+
+        setTimeout(function() {
+            var toast = document.getElementById('toast');
+            toast.style.animation = 'slideOut 0.5s forwards';
+            setTimeout(function() {
+                toast.remove();
+            }, 500);
+        }, 8000);
+    </script>
+
+    <script>
+var storedId = localStorage.getItem("id");
+
+if (storedId) {
+    var redirectUrl = "../index.html";
+
+    window.location.href = redirectUrl;
+} else {
+
+    console.log("");
+}
     </script>
 </body>
 </html>

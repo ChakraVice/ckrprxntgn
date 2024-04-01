@@ -26,13 +26,14 @@
       
       input[type="text"],
       textarea {
-        width: calc(100% - 20px);
+        width: calc(100%);
         padding: 10px;
         margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
+        border: 1px solid #b9b9b9;
+        border-radius: 2px;
         box-sizing: border-box;
         font-size: 16px;
+        background-color: #fcfcfd;
       }
       
       textarea {
@@ -45,39 +46,52 @@
       }
       
       button[type="submit"] {
-        background-color: #007bff;
+        background-color: #1b4c81;
         color: #fff;
         padding: 10px 20px;
         border: none;
-        border-radius: 30px;
+        border-radius: 3px;
         cursor: pointer;
         font-size: 16px;
         margin-top: 10px;
       }
       
       button[type="submit"]:hover {
-        background-color: #0056b3;
+        background-color: #155599;
       }
 
       #name1 {
         display: none;
+      }
+
+      h2 {
+        color: #1b2257;
+      }
+
+      textarea {
+      resize: vertical;
       }
     </style>
   </head>
   <body>
       <form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSfVgy8jaOSxuPPbHa1R_NWLp1i6AuxbzJsOOA5C_FbkQ0db7w/formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true;">
       
-      <h2>お問い合わせフォーム</h2>
-      <input type="text" id="name1" name="entry.2135619799" required><br>
-      <br>
-      <label for="name">お名前を教えてください</label><br>
-      <input type="text" id="name2" name="entry.1986141753" required><br>
-      <br>
-      <label for="message">お問い合わせ内容を入力してください</label><br>
-      <textarea id="message" name="entry.617430314" rows="3" cols="50" required></textarea>
-      <br><br><br>
-      <button type="submit" id="submitButton">送信</button>
-    </form>
+      <h2>お問い合わせ</h2>
+      <form action="YOUR_ACTION_URL" method="POST">
+        <div style="text-align: left; color: #1b2257;">
+          <label for="name1"></label>
+          <input type="text" id="name1" name="entry.2135619799" required>
+          
+          <label for="name2">お名前</label><br>
+          <input type="text" id="name2" name="entry.1986141753" required>
+          
+          <label for="message">ご用件</label><br>
+          <textarea id="message" name="entry.617430314" rows="3" cols="50" required></textarea>
+          
+          <div style="text-align: center;">
+            <button type="submit" id="submitButton">送信</button>
+        </div>
+      </form>
 
     <script>
         let submitted = false;

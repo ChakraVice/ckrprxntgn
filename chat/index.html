@@ -57,10 +57,12 @@
             margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            text-align: center;
         }
 
         button {
             font-family: 'Noto Sans JP', sans-serif;
+            transition: background-color 0.3s ease;
             background-color: #004bbc;
             color: white;
             padding: 10px 20px;
@@ -80,6 +82,7 @@
 
         .button2 {
             font-family: 'Noto Sans JP', sans-serif;
+            transition: background-color 0.3s ease;
             background-color: #004bbc;
             color: white;
             padding: 10px 20px;
@@ -131,6 +134,22 @@
         #customButton:hover {
             background-color: #8433c7;
         }
+
+        .button3 {
+            font-family: 'Noto Sans JP', sans-serif;
+            transition: background-color 0.3s ease;
+            background-color: #004bbc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .button3:hover {
+            background-color: #007bcd;
+        }
     </style>
 
 </head>
@@ -138,8 +157,8 @@
 
     <div class="overlay" id="overlay" style="display: none;">
         <div class="alert-box">
-          <p>IDの取得はお問い合わせからできます</p>
-          <button onclick="hideAlert()">閉じる</button>
+          <p>IDの取得はお問い合わせからできます<br>※三文字以上半角でお願いします</p>
+          <button onclick="hideAlert()">OK</button>
         </div>
       </div>
 
@@ -149,17 +168,18 @@
             ・半角で入力できていますか？<br>
             ・IDは本当に正しいですか？<br><br>
             ※旧サイトのIDはリセットされています</p>
-            <button onclick="hideAnotherAlert()">閉じる</button>
+            <button onclick="hideAnotherAlert()">OK</button>
         </div>
     </div>    
 
     <div id="container">
         <h1>チャット</h1>
-        <p>参加したいチャットルームのIDを入力してください</p>
+        <p>参加したいチャットルームのIDを入力してください<br>
+        ※IDは部外者に見せないでください。チャットに参加される可能性があります。</p>
 
         <label for="inputId"></label>
-        <input type="text" id="inputId" placeholder="ここにIDを入力してください...">
-        <button onclick="openChat()">参加</button>
+        <input type="text" id="inputId" placeholder="こちらにチャットルームIDを入力..."><br><br>
+        <button onclick="openChat()">入力したIDに参加</button>
         <button class="button2" onclick="showAlert()">IDの取得</button>
         <button class="button2" onclick="showAnotherAlert()">参加できない場合</button>
     </div>

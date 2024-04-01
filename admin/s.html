@@ -56,6 +56,12 @@
         .notification-sound:hover {
             border-color: #555;
         }
+        .debug-option {
+            margin-bottom: 10px;
+        }
+        .debug-option label {
+            font-weight: bold;
+        }
         .save-button {
             margin-top: 15px;
             background-color: #173271;
@@ -69,8 +75,6 @@
         .save-button:hover {
             background-color: #0e0d3c;
         }
-
-        
     </style>
 </head>
 <body>
@@ -89,6 +93,10 @@
         <div class="setting">
             <label for="nyancat-option">Nyancatの表示</label>
             <p>状態: <input type="checkbox" id="nyancat-option"></p>
+        </div><br><hr>
+        <div class="setting debug-option">
+            <label for="debug-option">デバッグ表示</label>
+            <p>状態: <input type="checkbox" id="debug-option"></p>
         </div><br><br>
         <button id="save-settings" class="save-button">保存</button>
     </div>
@@ -109,6 +117,11 @@
             if (savedNyancatOption) {
                 document.getElementById('nyancat-option').checked = savedNyancatOption === 'true';
             }
+
+            var savedDebugOption = localStorage.getItem('debugOption');
+            if (savedDebugOption) {
+                document.getElementById('debug-option').checked = savedDebugOption === 'true';
+            }
         });
 
         document.getElementById('save-settings').addEventListener('click', function() {
@@ -123,6 +136,13 @@
                 localStorage.setItem('nyancatOption', 'true');
             } else {
                 localStorage.removeItem('nyancatOption');
+            }
+
+            var debugOption = document.getElementById('debug-option').checked;
+            if (debugOption) {
+                localStorage.setItem('debugOption', 'true');
+            } else {
+                localStorage.removeItem('debugOption');
             }
 
             window.location.href = "set.html";

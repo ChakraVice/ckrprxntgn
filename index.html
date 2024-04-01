@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Beta | </title>
+<title>Beta</title>
 <link rel="icon" href="texture/logo/favicon.ico">
 <link rel="apple-touch-icon" href="texture/logo/logo.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -119,7 +119,7 @@
         left: 50%;
         transform: translateX(-50%);
         padding: 10px;
-        background-color: #333;
+        background-color: #333333;
         color: white;
         border-radius: 5px;
         white-space: nowrap;
@@ -155,10 +155,6 @@
 </style>
 </head>
 <body>
-
-
-
-
 <div class="menu">
     <a href="#" onclick="loadContent('TOP.html')">
         <span class="icon top"></span>
@@ -214,7 +210,7 @@
         <span class="details">設定</span>
     </a>
 
-    <a href="user/index.html" onclick="loadContent('')">
+    <a href="user/logout.html" onclick="loadContent('')">
         <span class="icon logout"></span>
         <span class="details">退出</span>
     </a>
@@ -241,24 +237,6 @@ if (savedBgColor) {
 } else {
     menuElement.style.backgroundColor = '#1c1c1c';
 }
-
-</script>
-
-<script>
-window.onload = function() {
-    var currentTime = new Date();
-    var hours = currentTime.getHours();
-    var minutes = currentTime.getMinutes();
-    var seconds = currentTime.getSeconds();
-
-    hours = (hours < 10 ? "0" : "") + hours;
-    minutes = (minutes < 10 ? "0" : "") + minutes;
-    seconds = (seconds < 10 ? "0" : "") + seconds;
-
-    var title = "Beta | " + hours + "" + minutes + "";
-
-    document.title = title;
-};
 
 </script>
 
@@ -296,5 +274,12 @@ if (nyancatOption === "true") {
     document.write('<img src="texture/cat.gif" alt="Cat" class="fixed-image">');
 }
 </script>
+
+<script>
+    if (window.location.href.endsWith("#s")) {
+     document.getElementById("iframe").src = "s.html";
+    }
+</script>
+
 </body>
 </html>

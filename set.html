@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .message {
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .message h1 {
+    font-size: 40px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  button {
+    background-color: #0c6724;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #b39500;
+  }
+
+  .message p {
+    margin-top: 20px;
+    display: none; 
+    color: red;
+    font-size: 30px;
+  }
+
+  .message.clicked p {
+    display: block;
+  }
+</style>
+</head>
+<body>
+  <div class="message">
+    <img src="texture/icon/check2.png" alt="Success Image">
+    <h1>設定を保存しました</h1>
+    <button class="button" onclick="applySettings()">こちらをクリックして適用</button>
+    <p>適用しました。こちらのタブは削除してください。</p>
+  </div>
+
+<script>
+  function applySettings() {
+    document.querySelector('.message').classList.add('clicked');
+    window.open('index.html#s', '_blank');
+  }
+</script>
+
+</body>
+</html>
