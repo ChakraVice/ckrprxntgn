@@ -1,66 +1,140 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
-  <style>
-    body {
-      font-family: 'Noto Sans JP', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f8f8f8;
-      color: #333;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
+<title>TOP</title>
+<style>
+  body {
+    font-family: "Noto Sans JP", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+  }
 
-    header {
-      background-color: #333;
-      color: #fff;
-      padding: 1em;
-      text-align: center;
-    }
+  .announcement-container {
+    width: 80%;
+    max-width: 1500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.5s ease-in-out forwards;
+  }
 
-    section {
-      max-width: 1400px;
-      margin: 20px auto;
-      padding: 20px;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
     }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
-    h3{
-      font-size: 25px;
-      color: #333;
-    }
+  .announcement {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-left: 5px solid #1b4f72;
+  }
 
-    p {
-      font-size: 20px;
-    }
+  .announcement h2 {
+    color: #333;
+    font-size: 18px;
+  }
 
-    .back-button {
-      display: inline-block;
-      padding: 10px 20px;
-      margin-bottom: 20px;
-      background-color: #333;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-      float: right;
-      margin-right: 5px;
-    }
+  header h1 {
+  font-size: 40px;
+  }
 
-    .back-button:hover {
-      background-color: #555;
-    }
-  </style>
+  .announcement p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .announcement-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .announcement-date {
+    font-size: 14px;
+    color: #888;
+  }
+
+  .show-details-button {
+    font-family: "Noto Sans JP", sans-serif;
+    background-color: #1b4f72;
+    color: #fff;
+    border: none;
+    padding: 3px 8px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .show-details-button:hover {
+    background-color: #195f39;
+  }
+
+  .details {
+    display: none;
+    margin-top: 10px;
+  }
+
+  .details p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+header {
+  background-color: #1b4f72;
+  color: #fff;
+  padding: 5px 0;
+  text-align: center;
+  line-height: 0.5;
+}
+
+
+</style>
 </head>
 <body>
+  <header>
+    <h1>TOP</h1>
+  </header>
 
-<section>
-<h3>トップ何置こうかな</h3>
-</section>
+  <div class="announcement-container">
+    <h1>News</h1>
+    <div class="announcement">
+      <h2>ベータ版を公開しました</h2>
+      <div class="announcement-footer">
+        <span class="announcement-date">2024/4/09</span>
+        <button class="show-details-button">詳細を表示</button>
+      </div>
+      <div class="details">
+        <p><i>詳細はありません</i></p>
+      </div>
+    </div>
+    </div>
+  </div>
 
+  <script>
+    const showDetailsButtons = document.querySelectorAll('.show-details-button');
+
+    showDetailsButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const details = button.parentNode.parentNode.querySelector('.details');
+        details.style.display = details.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+  </script>
 </body>
 </html>
