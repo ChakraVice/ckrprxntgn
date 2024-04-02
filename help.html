@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ヘルプセンター</title>
+<title>よくある質問</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
 <style>
     body {
@@ -13,7 +13,7 @@
         background-color: #f0f0f0;
     }
     .container {
-        max-width: 800px;
+        max-width: 1000px;
         margin: 20px auto;
         padding: 20px;
         border-radius: 5px;
@@ -45,6 +45,7 @@
         cursor: pointer;
         transition: background-color 0.3s ease;
         position: relative;
+        display: none; /* hide by default */
     }
     .faq-list li .toggle-icon {
         position: absolute;
@@ -68,7 +69,7 @@
 <body>
 
 <div class="container">
-    <input type="text" class="search-bar" id="searchInput" placeholder="質問を検索する">
+    <input type="text" class="search-bar" id="searchInput" placeholder="質問を検索する...">
     <ul class="faq-list">
         <li>文字が打てないです <span class="toggle-icon">▽</span></li>
         <div class="faq-content">
@@ -78,15 +79,15 @@
         <li>Youtubeがずっとロードします <span class="toggle-icon">▽</span></li>
         <div class="faq-content">
             <p>動画を選択してロードが続く場合、処理をしているので少し待ってみてください。<hr>
-            動画一覧でロードが続く場合はインスタンスの問題かもしれません。<br><br>
+            ホームなどでロードが続く場合はインスタンスの問題かもしれません。対処法を紹介します。<br><br>
             ① 右上の設定をクリックして一番下のインスタンスという項目を探してください。<br>
             ② おそらくkavin.rocksが選択されていると思うのでそれを別の物に変更してください。(インスタンスは稼働率などを参考に選んでください)<br>
-            <br>(❸翌日には改善していると思うので公式のkavin.rocksに戻すことを推奨します。)</p>
+            <br>(翌日には改善していると思うので公式のkavin.rocksに戻すことを推奨します)</p>
         </div>
 
         <li>コミュニティの投稿者ページが開けないです <span class="toggle-icon">▽</span></li>
         <div class="faq-content">
-            <p>左下の青いボタンをクリックして新しいタブの状態で試してください。</p>
+            <p>左下の青いボタンをクリックするかcircula.lolを新しいタブの状態で試してください。</p>
         </div>
 
         <li>プロキシが使えないです <span class="toggle-icon">▽</span></li>
@@ -95,7 +96,7 @@
             (V3ではR18コンテンツなど一部サイトが規制されます)</p>
         </div>
 
-        <p><br>その他質問はご気軽にフォームまで。よくある質問は随時追加していきます。</p>
+        <p><br>※よくある質問は随時追加していきます</p>
 
 
     </ul>
@@ -105,6 +106,21 @@
     document.addEventListener("DOMContentLoaded", function() {
         const searchInput = document.getElementById("searchInput");
         const faqItems = document.querySelectorAll(".faq-list li");
+
+        // ?q=txt
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchTerm = urlParams.get('q');
+
+        searchInput.value = searchTerm;
+
+        faqItems.forEach(item => {
+            const question = item.textContent.trim().toLowerCase();
+            const content = item.nextElementSibling;
+
+            if (!searchTerm || question.includes(searchTerm)) {
+                item.style.display = "block";
+            }
+        });
 
         searchInput.addEventListener("input", function() {
             const searchTerm = this.value.trim().toLowerCase();
