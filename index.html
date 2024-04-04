@@ -281,5 +281,51 @@ if (nyancatOption === "true") {
     }
 </script>
 
+<!--FPS-->
+<style>
+    #fpsCounter {
+    position: fixed;
+    top: 3px;
+    right: 3px;
+    color: rgb(255, 0, 0);
+    font-size: 12px;
+    font-family: Noto Sans JP, sans-serif;
+    padding: 5px 10px;
+    cursor: default;
+    z-index: 9999;
+    }
+
+    #fpsCounter:hover {
+        display: none;
+    }
+  </style>
+</head>
+<body>
+  <b><div id="fpsCounter"><span id="fpsValue">0</span> FPS</div></b>
+  <script>
+    let fpsValue = document.getElementById("fpsValue");
+
+    let frameCount = 0;
+    let lastTime = performance.now();
+    function updateFPS() {
+      frameCount++;
+
+      let now = performance.now();
+      let delta = now - lastTime;
+
+      if (delta >= 50) {
+        let fps = frameCount / (delta / 1000);
+        fpsValue.textContent = fps.toFixed(0);
+        frameCount = 0;
+        lastTime = now;
+      }
+
+      requestAnimationFrame(updateFPS);
+    }
+
+    updateFPS();
+  </script>
+  <!--FPSEND-->  
+
 </body>
 </html>
