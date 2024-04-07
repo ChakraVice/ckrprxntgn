@@ -241,18 +241,21 @@ if (savedBgColor) {
 </script>
 
 <script>
-    var notificationSound = localStorage.getItem('notificationSound');
+var notificationSound = localStorage.getItem('notificationSound');
 
-    var url;
-    if (notificationSound === 'v4') {
-        url = 'https://prx2-app.chakra.wtf/';
-    } else {
-        url = 'https://prx-app.chakra.wtf/';
-    }
+var url;
+if (notificationSound === 'v4') {
+    url = 'https://prx2-app.chakra.wtf/';
+} else if (notificationSound === 'v5') {
+    url = 'https://prx5-app.chakra.wtf/search.html';
+} else {
+    url = 'https://prx-app.chakra.wtf/';
+}
 
-    function loadContent(url) {
+function loadContent(url) {
     document.getElementById('iframe').src = url;
-    }
+}
+
 </script>
 
 <script>
