@@ -259,18 +259,6 @@ function loadContent(url) {
 </script>
 
 <script>
-let userAgent = navigator.userAgent;
-
-let mobileRegex = /android|iphone|kindle|ipad/i;
-
-let isMobileDevice = mobileRegex.test(userAgent);
-
-if (isMobileDevice) {
-    alert("PC以外からのアクセスを検知しました。\nChakraはPC以外での端末の動作をサポートしていません。\nそれでもよろしい場合はOKを押して進んでください。");
-}
-</script>
-
-<script>
 var nyancatOption = localStorage.getItem("nyancatOption");
 
 if (nyancatOption === "true") {
