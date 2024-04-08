@@ -143,6 +143,11 @@
       this.style.display = "none";
       document.getElementById("displayText").style.display = "block";
   });
+
+history.pushState(null, null, document.URL);
+window.addEventListener('popstate', function () {
+    history.pushState(null, null, document.URL);
+});
 </script>
       
     </form>
