@@ -274,17 +274,17 @@ if (nyancatOption === "true") {
 
 <!--FPS-->
 <style>
-    #fpsCounter {
+#fpsCounter {
     position: fixed;
-    top: 3px;
-    right: 3px;
+    bottom: 1px;
+    right: 1px;
     color: rgb(255, 0, 0);
-    font-size: 12px;
+    font-size: 11px;
     font-family: Noto Sans JP, sans-serif;
     padding: 5px 10px;
     cursor: default;
     z-index: 9999;
-    }
+}
 
     #fpsCounter:hover {
         display: none;
@@ -292,7 +292,7 @@ if (nyancatOption === "true") {
   </style>
 </head>
 <body>
-  <b><div id="fpsCounter"><span id="fpsValue">0</span> FPS</div></b>
+  <i><b><div id="fpsCounter"><span id="fpsValue">0</span> FPS</div></b></i>
   <script>
     let fpsValue = document.getElementById("fpsValue");
 
