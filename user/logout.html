@@ -142,12 +142,20 @@
       document.getElementById("submitButton").addEventListener("click", function() {
       this.style.display = "none";
       });
-  
+
 history.pushState(null, null, document.URL);
 window.addEventListener('popstate', function () {
     history.pushState(null, null, document.URL);
 });
+  
       </script>
+
+<script>
+  document.getElementById("submitButton").addEventListener("click", function() {
+      localStorage.setItem("loginStatus", "NO");
+  });
+  </script>
+
     </form>
   </div>
 </body>

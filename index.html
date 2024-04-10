@@ -318,5 +318,13 @@ if (nyancatOption === "true") {
   </script>
   <!--FPSEND-->  
 
+  <script>
+    const loginStatus = localStorage.getItem("loginStatus");
+
+    if (loginStatus === "YES") {
+    } else {
+        window.location.href = "user/nologin.html";
+    }
+</script>
 </body>
 </html>
