@@ -115,10 +115,10 @@
         opacity: 0;
         visibility: hidden;
         position: absolute;
-        top: calc(100% + 5px);
+        top: calc(100% + 2px);
         left: 50%;
         transform: translateX(-50%);
-        padding: 10px;
+        padding: 8px;
         background-color: #333333;
         color: white;
         border-radius: 5px;
@@ -126,7 +126,8 @@
         transition: all 0.3s ease-in-out;
         pointer-events: none;
         z-index: 1;
-        font-size: 14px;
+        font-size: 12px;
+        text-align: center;
     }
 
     .menu a:hover .details {
@@ -156,6 +157,7 @@
 </head>
 <body>
 <div class="menu">
+
     <a href="#" onclick="loadContent('TOP.html')">
         <span class="icon top"></span>
         <span class="details">トップ</span>
@@ -218,13 +220,13 @@
 
     <a href="user/logout.html" onclick="loadContent('')">
         <span class="icon logout"></span>
-        <span class="details">退出</span>
+        <span class="details">ログアウト<br>(退出)</span>
     </a>
 
 </div>
 
 <div class="content">
-    <iframe id="iframe" src="none.html" frameborder="0" scrolling="yes"></iframe>
+    <iframe id="iframe" src="top.html" frameborder="0" scrolling="yes"></iframe>
 </div>
 
 <script>
@@ -284,7 +286,7 @@ if (nyancatOption === "true") {
     position: fixed;
     bottom: 1px;
     right: 1px;
-    color: rgb(255, 0, 0);
+    color: rgba(255, 0, 0, 0.906);
     font-size: 11px;
     font-family: Noto Sans JP, sans-serif;
     padding: 5px 10px;
@@ -292,13 +294,14 @@ if (nyancatOption === "true") {
     z-index: 9999;
 }
 
+
     #fpsCounter:hover {
         display: none;
     }
   </style>
 </head>
 <body>
-  <i><b><div id="fpsCounter"><span id="fpsValue">0</span> FPS</div></b></i>
+  <b><div id="fpsCounter"><span id="fpsValue">0</span> FPS</div></b>
   <script>
     let fpsValue = document.getElementById("fpsValue");
 
