@@ -186,16 +186,15 @@
     </a>
 
     <!--
-    <a href="#" onclick="loadContent('comingsoon.html')">
+    <a href="#" onclick="loadContent('tool.html')">
         <span class="icon music"></span>
-        <span class="details">???</span>
-    </a>
+        <span class="details">ツール</span>
     -->
 
     <!--
-    <a href="#" onclick="loadContent('https://circula.lol/file/')">
+    <a href="#" onclick="loadContent('os.html')">
         <span class="icon info"></span>
-        <span class="details">ファイル</span>
+        <span class="details">ﾔｼﾞｭｾﾝﾊﾟｲ<br>ｲｷｽｷﾞﾝ<br>ｲｸｲｸ<br>ｱｯｱｯｱｯｱｰ</span>
     </a>
     -->
     
@@ -332,6 +331,20 @@ if (nyancatOption === "true") {
     } else {
         window.location.href = "user/nologin.html";
     }
+</script>
+
+<script>
+function checkURL() {
+    var currentURL = window.location.href;
+    
+    if (currentURL.endsWith("?=y")) {
+        document.querySelector('.menu').style.backgroundImage = "url('texture/yj.png')";
+    }
+}
+
+window.onload = function() {
+    checkURL();
+};
 </script>
 </body>
 </html>
