@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,74 +11,68 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: flex-start;
-            align-items: flex-start;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
-            background-color: #f0f0f0;
+            background-color: #f8f9fa;
         }
         .container {
+            width: 320px;
             margin: 20px;
             padding: 20px;
-            border: 1px solid #ccc;
+            border: 1px solid #ced4da;
             border-radius: 8px;
             background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
         .setting {
-            display: inline-block;
-            margin-right: 20px;
-            vertical-align: top;
+            margin-bottom: 20px;
         }
         .setting label {
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
+            color: #495057;
         }
         .color-picker,
-        .bg-color-picker {
-            margin-bottom: 10px;
-            padding: 5px;
-            border: 1px solid #ccc;
+        .notification-sound {
+            width: calc(30% - 12px);
+            padding: 6px;
+            border: 1px solid #ced4da;
             border-radius: 4px;
             transition: border-color 0.3s ease;
         }
         .color-picker:hover,
-        .bg-color-picker:hover {
-            border-color: #555;
-        }
-        .notification-sound {
-            margin-bottom: 10px;
-            padding: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            transition: border-color 0.3s ease;
-        }
         .notification-sound:hover {
-            border-color: #555;
+            border-color: #6c757d;
         }
         .save-button {
-            margin-top: 15px;
-            background-color: #173271;
+            width: 100%;
+            background-color: #1f4e81;
             color: white;
-            padding: 10px 20px;
+            padding: 10px 0;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
         .save-button:hover {
-            background-color: #0e0d3c;
+            background-color: #11365d;
         }
-
-        
+        hr {
+            margin: 20px 0;
+            border: none;
+            border-top: 1px solid #ced4da;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="setting">
             <label for="bg-color">サイドバーの色</label>
-            <input type="color" id="bg-color" class="bg-color-picker">
-        </div><br><hr>
+            <input type="color" id="bg-color" class="color-picker">
+        </div>
+        <hr>
         <div class="setting">
             <label for="notification-sound">プロキシの種類</label>
             <select id="notification-sound" class="notification-sound">
@@ -87,11 +81,15 @@
                 <option value="v4">V3</option>
                 <option value="v2" disabled>V2</option>
             </select>
-        </div><br><hr>
+        </div>
+        <hr>
         <div class="setting">
             <label for="nyancat-option">Nyancatの表示</label>
-            <p>状態: <input type="checkbox" id="nyancat-option"></p>
-        </div><br><br>
+            <label class="checkbox-container">状態:
+                <input type="checkbox" id="nyancat-option">
+                <span class="checkmark"></span>
+            </label>
+        </div>
         <button id="save-settings" class="save-button">保存</button>
     </div>
 
