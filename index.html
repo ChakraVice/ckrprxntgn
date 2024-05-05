@@ -350,24 +350,7 @@ window.onload = function() {
 };
 </script>
 
-<script>
-window.addEventListener('DOMContentLoaded', (event) => {
-    // メニュー項目のloadContentを事前に読み込む
-    const menuItems = document.querySelectorAll('.menu a');
-    menuItems.forEach(item => {
-        item.addEventListener('click', (event) => {
-            event.preventDefault(); // リンクのデフォルトの動作をキャンセル
-            const url = item.getAttribute('href');
-            loadContent(url); // loadContent関数を呼び出してコンテンツを読み込む
-        });
-    });
-});
 
-function loadContent(url) {
-    // ここにloadContent関数の中身を記述する
-    document.getElementById('iframe').src = url;
-}
-</script>
 
 </body>
 </html>
