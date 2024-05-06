@@ -163,21 +163,23 @@
         <span class="details">トップ</span>
     </a>
 
-    <!--
-    <a href="#" onclick="loadContent('cm.html')">
-        <span class="icon sns"></span>
-        <span class="details">コミュニティ</span>
-    </a>
-    -->
-
     <a href="#" onclick="loadContent(url)">
         <span class="icon proxy"></span>
         <span class="details">プロキシ</span>
     </a>
+
     <a href="#" onclick="loadContent('https://yt-app.chakra.wtf')">
         <span class="icon youtube"></span>
         <span class="details">YouTube</span>
     </a>
+
+    <!--
+    <a href="#" onclick="loadContent('cm.html')">
+        <span class="icon sns"></span>
+        <span class="details">X.com</span>
+    </a>
+    -->
+
     <a href="#" onclick="loadContent('games/index.html')">
         <span class="icon games"></span>
         <span class="details">ゲーム</span>
@@ -257,7 +259,7 @@ if (notificationSound === 'v4') {
 } else if (notificationSound === 'v5') {
     url = 'https://prx5-app.chakra.wtf/search.html';
 } else {
-    url = 'https://prx-app.chakra.wtf/';
+    url = 'prx.html';
 }
 
 function loadContent(url) {
